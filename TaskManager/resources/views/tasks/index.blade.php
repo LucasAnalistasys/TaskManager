@@ -1,3 +1,12 @@
+@extends('layouts.app')
+
+@section('title', 'Tarefas')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/tasks.css') }}">
+@endsection
+
+@section('content')
 <h1 class="primary-title">Listas de Tarefas</h1>
 
 @if($tasks->isEmpty())
@@ -25,5 +34,6 @@
         window.location.href = "{{ route('tasks.create') }}";
     });
 </script>
+@endsection
 
 
