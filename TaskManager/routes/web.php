@@ -11,10 +11,6 @@ use Illuminate\Http\Request;
 
 Route::get('/', [TaskController::class, 'index'])->name('index');
 
-Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
-
-Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
-
 Route::get('/login', [LoginController::class, 'LoginForm'])->name('login');
 
 Route::post('/login', [LoginController::class, 'Login'])->name('login.post');
@@ -25,3 +21,13 @@ Route::get('/register', [LoginController::class, 'RegisterForm'])->name('registe
 
 Route::post('/register', [LoginController::class, 'Register'])->name('register.post');
 
+
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+    Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+    Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+    Route::get('/tasks/delete/{task}', [TaskController::class, 'destroy'])->name('tasks.delete');
+
+});

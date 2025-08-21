@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\TaskModel;
+use Illuminate\Support\Facades\Hash;
+
 
 class LoginController extends Controller
 {
@@ -19,7 +21,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('index')->with('success', 'Login successful.');
+            return redirect()->intended('/')->with('success', 'Login successful.');
         }
 
         return redirect()->back()->withErrors(['email' => 'Invalid credentials.']);
@@ -52,7 +54,7 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('index')->with('success', 'Registration successful.');
+        return redirect()->route('/')->with('success', 'Registration successful.');
     }
 
 

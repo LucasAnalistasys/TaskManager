@@ -24,5 +24,10 @@ class TaskController extends Controller
     
           TaskModel::create($request->all());
           return redirect()->route('index')->with('success', 'Task created successfully.');
-     }
+    }
+
+    public function destroy(TaskModel $task){
+        $task->delete();
+        return redirect()->route('tasks.index')->with('success', 'Task deleted successfully.');
+    }
 }
