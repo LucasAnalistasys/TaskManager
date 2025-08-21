@@ -13,6 +13,11 @@ class TaskModel extends Model
         'Descricao',
         'Concluida',
     ];
-
     
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
 }
