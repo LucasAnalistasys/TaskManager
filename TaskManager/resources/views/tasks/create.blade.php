@@ -1,3 +1,13 @@
+@extends('layouts.app')
+
+@section('title', 'Criar Tarefa')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/tasks.css') }}">
+@endsection    
+
+@section('content')
+
 <div class="create-container">
     <h1>Criar Tarefa</h1>
     <form action="{{ route('tasks.store') }}" method="POST">
@@ -12,3 +22,5 @@
     </form>
         
 </div>
+
+@endsection

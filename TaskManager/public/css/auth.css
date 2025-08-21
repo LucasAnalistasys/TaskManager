@@ -1,0 +1,193 @@
+/* CSS PARA A PÁGINA DE REGISTRO */
+
+/* ===== Container principal ===== */
+.register-container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Título ===== */
+.register-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* ===== Formulário ===== */
+.register-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels */
+.register-container label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+.register-container input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.register-container input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+/* Botão */
+.register-container .btn-primary {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.register-container .btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Link para login */
+.register-container .login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-container .login-link a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-container .login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+    .register-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+
+/* CSS PARA A PÁGINA DE LOGIN */
+
+/* ===== Container principal ===== */
+.login-container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Título ===== */
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* ===== Formulário ===== */
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels */
+.login-container label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+.login-container input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+/* Checkbox */
+.login-container .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Botão */
+.login-container .btn-primary {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.login-container .btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Link para registro */
+.login-container .register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-container .register-link a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-container .register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+    .login-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}

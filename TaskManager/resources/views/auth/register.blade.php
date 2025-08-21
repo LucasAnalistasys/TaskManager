@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
+@section('title', 'Registrar')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 @section('content')
+
 <div class="register-container">
     <h1>Registrar</h1>
 

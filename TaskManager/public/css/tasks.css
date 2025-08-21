@@ -49,3 +49,90 @@ ul li:hover {
     background-color: #3730a3; /* azul escuro */
     transform: translateY(-2px);
 }
+
+
+/* CSS PARA BLADE CRIAR TAREFAS*/
+
+/* ===== Container principal ===== */
+.create-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Título ===== */
+.create-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* ===== Formulário ===== */
+.create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels */
+.create-form label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Inputs e textarea */
+.create-form input,
+.create-form textarea {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.create-form input:focus,
+.create-form textarea:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+/* Textarea ajustado */
+.create-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Botão de submit */
+.task-submit-btn {
+    padding: 12px 20px;
+    background-color: #4f46e5;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.task-submit-btn:hover {
+    background-color: #4f46e5;
+    transform: translateY(-2px);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .create-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+

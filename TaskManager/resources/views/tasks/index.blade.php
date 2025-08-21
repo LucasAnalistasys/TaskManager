@@ -18,11 +18,12 @@
             @foreach($tasks as $task)
                 <li>
                     <strong>{{ $task->Nome }}</strong> - {{ $task->Descricao }}
-                    <a href="{{ route('tasks.delete', $task->id) }}" 
-                        class="delete-task-btn"
-                        onclick="return confirm('Tem certeza que deseja excluir esta tarefa?')">
-                            Excluir
-                    </a>
+                    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?')">Excluir</button>
+                    </form>
+
                     @if($task->Concluida)
                         <span class="text-success">Concluída</span>
                     @else

@@ -26,10 +26,6 @@
                         @csrf
                         <button type="submit">Sair</button>
                     </form>
-                <ul>
-                    <li><a href="{{ route('tasks.index') }}">Tarefas</a></li>
-                    <li><a href="{{ route('tasks.create') }}">Criar Tarefa</a></li>
-                </ul>
                 @else
                     <ul>
                         <li><a href="{{ route('login') }}">Entrar</a></li>
