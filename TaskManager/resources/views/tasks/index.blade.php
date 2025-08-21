@@ -18,16 +18,27 @@
             @foreach($tasks as $task)
                 <li>
                     <strong>{{ $task->Nome }}</strong> - {{ $task->Descricao }}
-                    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display:inline;">
+                   
+                    @if($task->Concluida == 0)
+
+                        <form class="edit-btn" action="{{ route('tasks.edit', $task->id) }}" method="GET" style="display:inline;">
+                            <button type="submit">Editar</button>
+                        </form> 
+
+                        <form class="toggle-btn" action="{{ route('tasks.update', $task->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="Concluida" value="{{ $task->Concluida ? 0 : 1 }}">
+                            <button type="submit">{{ $task->Concluida ? 'Marcar como Pendente' : 'Marcar como Concluída' }}</button>    
+                        </form>
+
+                    @endif   
+
+                     <form class="delete-btn" action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?')">Excluir</button>
                     </form>
-
-                    <form action="{{ route('tasks.edit', $task->id) }}" method="GET" style="display:inline;">
-                        <button type="submit">Editar</button>
-                    </form>    
-
                     @if($task->Concluida)
                         <span class="text-success">Concluída</span>
                     @else

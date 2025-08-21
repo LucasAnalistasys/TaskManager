@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Policies\TaskPolicy;
 
 class TaskModel extends Model
 {
@@ -18,6 +19,7 @@ class TaskModel extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 
 
 }

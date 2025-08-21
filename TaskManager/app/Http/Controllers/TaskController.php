@@ -36,38 +36,44 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
     }
 
+    // Tela de edição
     public function edit(TaskModel $task)
     {
-        if ($task->user_id !== Auth::id()) {
-            abort(403, 'Ação não autorizada.');
-        }
-
+        $this->authorize('update', $task); // Policy
         return view('tasks.edit', compact('task'));
     }
 
+    // Atualizar tarefa
     public function update(Request $request, TaskModel $task)
     {
-        if ($task->user_id !== Auth::id()) {
-            abort(403, 'Ação não autorizada.');
-        }
+        $this->authorize('update', $task); // Policy
 
         $request->validate([
             'Nome' => 'required|string|max:255',
             'Descricao' => 'required|string|max:1000',
         ]);
 
-        $task->update($request->all());
+        $task->update($request->only('Nome', 'Descricao'));
         return redirect()->route('tasks.index')->with('success', 'Task updated successfully.');
     }
-    
-    // Deletar tarefa, garantindo que seja do usuário logado
+
+    // Deletar tarefa
     public function destroy(TaskModel $task)
     {
-        if ($task->user_id !== Auth::id()) {
-            abort(403, 'Ação não autorizada.');
-        }
-
+        $this->authorize('delete', $task); // Policy
         $task->delete();
+
         return redirect()->route('tasks.index')->with('success', 'Task deleted successfully.');
+    }
+
+    // Alternar status de concluída/pendente
+    public function complete(TaskModel $task)
+    {
+        $this->authorize('toggle', $task); // Policy
+
+        $task->Concluida = !$task->Concluida;
+        $task->save();
+
+        return redirect()->route('tasks.index')->with('success', 'Status da tarefa atualizado.');
     }
 }
