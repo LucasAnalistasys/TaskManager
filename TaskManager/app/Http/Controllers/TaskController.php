@@ -36,6 +36,30 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
     }
 
+    public function edit(TaskModel $task)
+    {
+        if ($task->user_id !== Auth::id()) {
+            abort(403, 'Ação não autorizada.');
+        }
+
+        return view('tasks.edit', compact('task'));
+    }
+
+    public function update(Request $request, TaskModel $task)
+    {
+        if ($task->user_id !== Auth::id()) {
+            abort(403, 'Ação não autorizada.');
+        }
+
+        $request->validate([
+            'Nome' => 'required|string|max:255',
+            'Descricao' => 'required|string|max:1000',
+        ]);
+
+        $task->update($request->all());
+        return redirect()->route('tasks.index')->with('success', 'Task updated successfully.');
+    }
+    
     // Deletar tarefa, garantindo que seja do usuário logado
     public function destroy(TaskModel $task)
     {

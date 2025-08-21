@@ -9,6 +9,9 @@
 @section('content')
 
 <div class="create-container">
+    <!-- Botão voltar -->
+    <a href="{{ route('tasks.index') }}" class="back-btn">&larr; Voltar</a>
+
     <h1>Criar Tarefa</h1>
     <form action="{{ route('tasks.store') }}" method="POST">
         @csrf
@@ -20,7 +23,7 @@
             <button type="submit" class="task-submit-btn">Adicionar Tarefa</button>
         </div>
     </form>
-        
 </div>
+
 
 @endsection

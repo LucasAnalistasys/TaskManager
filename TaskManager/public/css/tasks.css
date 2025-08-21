@@ -128,9 +128,110 @@ ul li:hover {
     transform: translateY(-2px);
 }
 
+/* Botão de voltar */
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+    transform: translateX(-3px);
+}
+
+
 /* Responsivo */
 @media (max-width: 600px) {
     .create-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+/* CSS PARA BLADE EDITAR TAREFAS*/
+
+/* ===== Container principal ===== */
+.edit-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Título ===== */
+.edit-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* ===== Formulário ===== */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels */
+.edit-form label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Inputs e textarea */
+.edit-form input,
+.edit-form textarea {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+/* Textarea ajustado */
+.edit-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Botão de submit */
+.task-submit-btn {
+    padding: 12px 20px;
+    background-color: #4f46e5; /* verde para diferenciar update de create */
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.task-submit-btn:hover {
+    background-color: #4f46e5;
+    transform: translateY(-2px);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .edit-container {
         margin: 20px;
         padding: 20px;
     }

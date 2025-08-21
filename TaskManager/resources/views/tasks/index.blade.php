@@ -24,6 +24,10 @@
                         <button type="submit" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?')">Excluir</button>
                     </form>
 
+                    <form action="{{ route('tasks.edit', $task->id) }}" method="GET" style="display:inline;">
+                        <button type="submit">Editar</button>
+                    </form>    
+
                     @if($task->Concluida)
                         <span class="text-success">Concluída</span>
                     @else
