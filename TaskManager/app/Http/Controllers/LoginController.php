@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\TaskModel;
 use Illuminate\Support\Facades\Hash;
+use App\Mail\ConfirmMail;
+use Illuminate\Support\Facades\Mail;
+
 
 
 class LoginController extends Controller
@@ -20,7 +23,12 @@ class LoginController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
+
         if (Auth::attempt($credentials)) {
+            if (!Auth::user()->is_verified) {
+                Auth::logout();
+                return redirect()->route('verify.notice');
+            }
             return redirect()->intended('/')->with('success', 'Login successful.');
         }
 
@@ -46,16 +54,22 @@ class LoginController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
+        $token = bin2hex(random_bytes(16));
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'is_verified' => false, 
+            'verification_token' => $token,
         ]);
 
-        Auth::login($user);
+        // Aqui você pode enviar o email de verificação usando o token
+        Mail::to($user->email)->send(new ConfirmMail($user, $user->verification_token));
 
         return redirect()->route('/')->with('success', 'Registration successful.');
     }
+
 
 
 }

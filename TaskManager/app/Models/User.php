@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'verification_token',
+        'is_verified',
     ];
 
     /**
@@ -43,6 +45,9 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'verification_token' => 'string',
+            'is_verified' => 'boolean',
+
         ];
     }
     public function tasks()
